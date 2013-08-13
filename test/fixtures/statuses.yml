@@ -1,4 +1,4 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+ # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 one:
   content: MyText
@@ -7,3 +7,7 @@ one:
 two:
   content: MyText
   user: jason
+
+three: 
+  content: Moretext
+  user: jim
