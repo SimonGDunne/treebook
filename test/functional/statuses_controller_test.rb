@@ -71,7 +71,14 @@ class StatusesControllerTest < ActionController::TestCase
     assert_redirected_to status_path(assigns(:status))
   end
 
-  test "should update for the current user status when logged in" do
+  test "should update status for the current user status when logged in" do
+    sign_in users(:jason)
+    put :update, id: @status, status: { content: @status.content, user_id: users(:jim).id }
+    assert_redirected_to status_path(assigns(:status))
+    assert_equal assigns(:status).user_id, users(:jason).id
+  end
+
+  test "should update the status if nothing has changed" do
     sign_in users(:jason)
     put :update, id: @status, status: { content: @status.content, user_id: users(:jim).id }
     assert_redirected_to status_path(assigns(:status))
